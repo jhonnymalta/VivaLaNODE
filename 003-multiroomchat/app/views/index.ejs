@@ -6,16 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MultiroomCHAT-LOGIN</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <div>
-        <form action="/chat" method="post">
-            <label for="user">Usuário</label>
-            <input type="text" name="user" id="user" placeholder="Digite o usário">
-            <br>
-            <input type="submit" value="Logar">
-        </form>
+    <div class="container mx-auto flex">
+        <div class=" ">
+            <form action="/chat" method="post">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="user">
+                    Usuário
+                </label>
+                <input
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="user" name="user" type="text" placeholder="Usuário">
+
+                <input type="submit" value="Logar">
+            </form>
+
+        </div>
     </div>
 
 </body>

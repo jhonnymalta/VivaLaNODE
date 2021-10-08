@@ -8,4 +8,6 @@ module.exports.iniciachat = function (application, req, res) {
     application.get('io').emit('msgParaCliente', { user: dadosForm.user, mensagem: 'Acabou de entrar no chat!' });
     res.render('chat');
 
+
+
 }

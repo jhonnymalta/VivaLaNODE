@@ -6,27 +6,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHAT</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+
 </head>
 
 <body>
-    <h2>Estamos na view CHAT</h2>
+    <div id="app" class="bg-blue-400 h-screen w-screen ">
+        <div class="row-start-2 block bg-gray-500" style="height: 10%">
+            <h2>MultiroomChat</h2>
+        </div>
+        <div style="height: 80% ">
+            <div id="Stage" class=" flex-col justify-center my-2">
+
+            </div>
+
+        </div>
+        <div style="height: 10%" class=" bg-gray-500 conteiner flex w-full">
+            <input
+                class="shadow appearance-none border rounded w-full py-3 px-3 h-8 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="user" name="user" type="text" placeholder="Usuário">
+
+            <input class="h-8" type="submit" value="Enviar">
+        </div>
+
+    </div>
 
 
 
 
     <script src="/socket.io/socket.io.js"></script>
+    <script></script>
     <script>
         var socket = io('http://localhost');
 
         socket.on('msgParaCliente', function (data) {
-            var html = '';
 
-            html += '<div class="dialogo">';
-            html += '<h4>' + data.user + '</h4>'
-            html += '<h4>' + data.mensagem + '</h4>'
-            html += '</div>'
+            new_html = `<div class="bg-gray-100 h-18 border rounded my-6 w-3/4">
+                <h3>${data.user}</h3>
+                <h4>${data.mensagem}</h4>    
+                </div>`;
+
+            $('#Stage').append(new_html);
+
         })
+
+
     </script>
+
 
 </body>
 
