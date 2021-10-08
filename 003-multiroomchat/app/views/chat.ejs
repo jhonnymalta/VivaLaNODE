@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAT</title>
+</head>
+
+<body>
+    <h2>Estamos na view CHAT</h2>
+
+
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io('http://localhost');
+
+        socket.on('msgParaCliente', function (data) {
+            var html = '';
+
+            html += '<div class="dialogo">';
+            html += '<h4>' + data.user + '</h4>'
+            html += '<h4>' + data.mensagem + '</h4>'
+            html += '</div>'
+        })
+    </script>
+
+</body>
+
+</html>
