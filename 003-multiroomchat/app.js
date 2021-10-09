@@ -28,6 +28,17 @@ io.on('connection', (socket) => {
     socket.on('disconnect', function () {
         console.log("Usuário desconectou!");
     })
+
+    socket.on('msgParaServidor', function (data) {
+        socket.emit('msgParaCliente', {
+            user: data.user,
+            mensagem: data.mensagem
+        });
+        socket.broadcast.emit('msgParaCliente', {
+            user: data.user,
+            mensagem: data.mensagem
+        });
+    })
 });
 
 

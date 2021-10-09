@@ -12,23 +12,23 @@
 
 </head>
 
-<body>
-    <div id="app" class="bg-blue-400 h-screen w-screen ">
-        <div class="row-start-2 block bg-gray-500" style="height: 10%">
-            <h2>MultiroomChat</h2>
+<body class=" w-screen bg-blue-400  " style="height: 100vh;">
+    <div id="app" style="height: 100%;">
+        <div class="row-start-2 block bg-gray-500 shadow-md" style="height: 20vh;">
+            <h2 class="text-4xl font-bold text-center text-gray-100 self-center">MultiroomChat</h2>
         </div>
-        <div style="height: 80% ">
-            <div id="Stage" class=" flex-col justify-center my-2">
+        <div>
+            <div id="Stage" class=" flex-col justify-center my-2" style="min-height: 70vh;">
 
             </div>
 
         </div>
-        <div style="height: 10%" class=" bg-gray-500 conteiner flex w-full">
+        <div class=" bg-gray-500 conteiner flex w-full" style="height: 10vh;">
             <input
                 class="shadow appearance-none border rounded w-full py-3 px-3 h-8 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="user" name="user" type="text" placeholder="Usuário">
-
-            <input class="h-8" type="submit" value="Enviar">
+                id="mensagem" name="mensagem" type="text" placeholder="Digite uma mensagem.">
+            <input type="hidden" value="<%=dadosForm.user%>" id="apelido">
+            <input class="h-8" type="submit" value="Enviar" id="enviar_mensagem">
         </div>
 
     </div>
@@ -41,9 +41,17 @@
     <script>
         var socket = io('http://localhost');
 
+        $('#enviar_mensagem').click(() => {
+
+            socket.emit(
+                'msgParaServidor',
+                { user: $('#apelido').val(), mensagem: $('#mensagem').val() }
+            );
+        })
+
         socket.on('msgParaCliente', function (data) {
 
-            new_html = `<div class="bg-gray-100 h-18 border rounded my-6 w-3/4">
+            new_html = `<div class="bg-gray-100 h-18 border rounded my-6 w-3/4 shadow-md">
                 <h3>${data.user}</h3>
                 <h4>${data.mensagem}</h4>    
                 </div>`;
