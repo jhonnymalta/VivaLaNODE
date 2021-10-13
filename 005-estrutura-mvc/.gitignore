@@ -1,0 +1,3 @@
+# Pastas que não irão subir para o github
+node_modules/
+db/
