@@ -3,6 +3,6 @@ const router = express.Router();
 
 const AdeController = require('../controllers/AdeController');
 
-router.get('/ade', AdeController.showAde)
+router.get('/', AdeController.showAde)
 
 module.exports = router

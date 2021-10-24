@@ -3,7 +3,7 @@ const router = express.Router();
 
 const AdesController = require('../controllers/AdesController');
 
-router.get('/', AdesController.pesquisar);
+router.get('/ades', AdesController.pesquisar);
 
 
 

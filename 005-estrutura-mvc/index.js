@@ -12,7 +12,7 @@ const conn = require('./db/conn');
 //const Ades = require('./models/Ades')
 
 // configura a templete engine 
-app.engine('handlebars', exphbs);
+app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
 //Seta o midleware para ler tudo que vem no corpo de uma requisao

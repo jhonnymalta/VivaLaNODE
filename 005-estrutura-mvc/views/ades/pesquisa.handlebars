@@ -1,6 +1,17 @@
-<h2>Tela de pesquisa</h2>
-<ul>
-    {{#each Adesretorno}}
-    <li></li>
-    {{/each}}
-</ul>
+<div class=" w-2/4  content-center py-8">
+
+    <form action="" method="GET" class="flex">
+        <label for="ade" class="font-bold">N° da Proposta</label>
+        <input type="text" name="ade" id="ade" class="h-8 rounded-l-2xl px-4" placeholder="N° da Proposta">
+        <br>
+        <input type="submit" value="Pesquisar" class="rounded-r-2xl w-24 font-bold bg-blue-500">
+    </form>
+
+</div>
+<div>
+    <ul>
+        {{#each ades}}
+        <p> ola</p>
+        {{/each}}
+    </ul>
+</div>
